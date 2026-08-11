@@ -3,6 +3,7 @@ import Navbar from './components/Navbar'
 import Sidebar from './components/Sidebar'
 import DashboardCard from './components/DashboardCard'
 import DeviceCard from './components/DeviceCard'
+import EnergyChart from './components/EnergyChart'
 
 function App() {
   return (
@@ -11,6 +12,8 @@ function App() {
 
       <div className="layout">
         <Sidebar />
+
+        <EnergyChart />
 
         <main className="main-content">
           <h1>Dashboard</h1>
@@ -67,6 +70,7 @@ function App() {
 
             </div>
           </div>
+            <EnergyChart />
 
         </main>
       </div>

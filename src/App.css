@@ -193,3 +193,16 @@
 .device-card button:hover {
   background-color: #394154;
 }
+
+ .energy-chart {
+  margin-top: 40px;
+  padding: 25px;
+  background-color: #171a21;
+  border: 1px solid #272b35;
+  border-radius: 14px;
+}
+
+.energy-chart h2 {
+  margin-bottom: 25px;
+  font-size: 22px;
+}
