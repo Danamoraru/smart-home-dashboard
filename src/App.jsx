@@ -1,14 +1,22 @@
-import "./App.css";
-import Navbar from "./components/Navbar";
+import './App.css'
+import Navbar from './components/Navbar'
+import Sidebar from './components/Sidebar'
 
 function App() {
   return (
     <div className="app">
       <Navbar />
 
-      <p>Bine ai venit în aplicația mea de licență!</p>
+      <div className="layout">
+        <Sidebar />
+
+        <main className="main-content">
+          <h1>Dashboard</h1>
+          <p>Bine ai venit în Smart Home Dashboard!</p>
+        </main>
+      </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
