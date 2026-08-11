@@ -18,6 +18,9 @@ function Sidebar() {
           <Link to="/energy">
           ⚡ Energy
         </Link>
+        <Link to="/security">
+          🔒 Security
+        </Link>
       </nav>
     </aside>
   )

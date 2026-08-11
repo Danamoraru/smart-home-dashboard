@@ -1,6 +1,7 @@
 import DashboardCard from '../components/DashboardCard'
 import DeviceCard from '../components/DeviceCard'
 import EnergyChart from '../components/EnergyChart'
+import homeData from '../data/homeData'
 
 function Dashboard() {
   return (
@@ -13,23 +14,23 @@ function Dashboard() {
 
         <DashboardCard
           title="Temperature"
-          value="22°C"
+          value={`${homeData.temperature.value}${homeData.temperature.unit}`}
           icon="🌡️"
-          description="Normal"
+          description={homeData.temperature.status}
         />
 
         <DashboardCard
           title="Humidity"
-          value="48%"
+          value={`${homeData.humidity.value}${homeData.humidity.unit}`}
           icon="💧"
-          description="Normal"
+          description={homeData.humidity.status}
         />
 
         <DashboardCard
           title="Energy"
-          value="6.8 kWh"
+          value={`${homeData.energy.value} ${homeData.energy.unit}`}
           icon="⚡"
-          description="Today"
+          description={homeData.energy.status}
         />
 
       </div>
@@ -39,23 +40,15 @@ function Dashboard() {
 
         <div className="device-cards">
 
-          <DeviceCard
-            name="Living Light"
-            icon="💡"
-            type="Light"
-          />
-
-          <DeviceCard
-            name="Bedroom Light"
-            icon="💡"
-            type="Light"
-          />
-
-          <DeviceCard
-            name="Front Door"
-            icon="🚪"
-            type="Security"
-          />
+          {homeData.devices.map((device) => (
+            <DeviceCard
+              key={device.id}
+              id={device.id}
+              name={device.name}
+              icon={device.icon}
+              type={device.type}
+            />
+          ))}
 
         </div>
       </div>

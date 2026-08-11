@@ -1,19 +1,39 @@
-import { useState } from 'react'
+import { useHome } from '../context/HomeContext'
 
-function DeviceCard({ name, icon, type }) {
-  const [isActive, setIsActive] = useState(false)
+function DeviceCard({ id, name, icon, type }) {
+  const { devices, toggleDevice } = useHome()
+
+  const device = devices.find((device) => device.id === id)
+
+  const isActive = device?.isActive ?? false
 
   const getStatus = () => {
-    if (type === 'Security') {
+    if (type === 'Door') {
       return isActive ? '🔓 Unlocked' : '🔒 Locked'
+    }
+
+    if (type === 'Camera') {
+      return isActive ? '🟢 Online' : '🔴 Offline'
+    }
+
+    if (type === 'Alarm') {
+      return isActive ? '🚨 Active' : '🟢 Inactive'
     }
 
     return isActive ? '🟢 ON' : '🔴 OFF'
   }
 
   const getButtonText = () => {
-    if (type === 'Security') {
+    if (type === 'Door') {
       return isActive ? 'Lock' : 'Unlock'
+    }
+
+    if (type === 'Camera') {
+      return isActive ? 'Turn off' : 'Turn on'
+    }
+
+    if (type === 'Alarm') {
+      return isActive ? 'Deactivate' : 'Activate'
     }
 
     return isActive ? 'Turn off' : 'Turn on'
@@ -31,7 +51,7 @@ function DeviceCard({ name, icon, type }) {
 
       <p>{getStatus()}</p>
 
-      <button onClick={() => setIsActive(!isActive)}>
+      <button onClick={() => toggleDevice(id)}>
         {getButtonText()}
       </button>
     </div>

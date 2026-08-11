@@ -1,18 +1,25 @@
 import DeviceCard from '../components/DeviceCard'
 import homeData from '../data/homeData'
 
-function Devices() {
+function Security() {
+  const securityDevices = homeData.devices.filter(
+    (device) =>
+      device.type === 'Door' ||
+      device.type === 'Camera' ||
+      device.type === 'Alarm'
+  )
+
   return (
     <main className="main-content">
-      <h1>Devices</h1>
+      <h1>Security</h1>
 
       <p>
-        Monitorizează și controlează dispozitivele locuinței.
+        Monitorizarea securității locuinței.
       </p>
 
       <div className="device-cards">
 
-        {homeData.devices.map((device) => (
+        {securityDevices.map((device) => (
           <DeviceCard
             key={device.id}
             id={device.id}
@@ -27,4 +34,4 @@ function Devices() {
   )
 }
 
-export default Devices
+export default Security
