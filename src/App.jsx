@@ -2,6 +2,7 @@ import './App.css'
 import Navbar from './components/Navbar'
 import Sidebar from './components/Sidebar'
 import DashboardCard from './components/DashboardCard'
+import DeviceCard from './components/DeviceCard'
 
 function App() {
   return (
@@ -40,6 +41,33 @@ function App() {
             />
 
           </div>
+
+          <div className="devices-section">
+            <h2>Devices</h2>
+
+            <div className="device-cards">
+
+              <DeviceCard
+                name="Living Light"
+                icon="💡"
+                type="Light"
+              />
+
+              <DeviceCard
+                name="Bedroom Light"
+                icon="💡"
+                type="Light"
+              />
+
+              <DeviceCard
+                name="Front Door"
+                icon="🚪"
+                type="Security"
+              />
+
+            </div>
+          </div>
+
         </main>
       </div>
     </div>
