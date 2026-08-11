@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 function Sidebar() {
   return (
     <aside className="sidebar">
@@ -6,11 +8,16 @@ function Sidebar() {
       </div>
 
       <nav className="sidebar-nav">
-        <a href="#">🏠 Dashboard</a>
-        <a href="#">💡 Devices</a>
-        <a href="#">⚡ Energy</a>
-        <a href="#">🔒 Security</a>
-        <a href="#">👤 Profile</a>
+        <Link to="/">
+          🏠 Dashboard
+        </Link>
+
+        <Link to="/devices">
+          💡 Devices
+        </Link>
+          <Link to="/energy">
+          ⚡ Energy
+        </Link>
       </nav>
     </aside>
   )

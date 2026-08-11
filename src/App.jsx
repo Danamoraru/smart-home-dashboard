@@ -1,80 +1,34 @@
 import './App.css'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Sidebar from './components/Sidebar'
-import DashboardCard from './components/DashboardCard'
-import DeviceCard from './components/DeviceCard'
-import EnergyChart from './components/EnergyChart'
+import Dashboard from './pages/Dashboard'
+import Devices from './pages/Devices'
+import Energy from './pages/Energy'
 
 function App() {
   return (
-    <div className="app">
-      <Navbar />
+    <BrowserRouter>
 
-      <div className="layout">
-        <Sidebar />
+      <div className="app">
 
-        <EnergyChart />
+        <Navbar />
 
-        <main className="main-content">
-          <h1>Dashboard</h1>
+        <div className="layout">
 
-          <p>Bine ai venit în Smart Home Dashboard!</p>
+          <Sidebar />
 
-          <div className="dashboard-cards">
+          <Routes>
+         <Route path="/" element={<Dashboard />} />
+         <Route path="/devices" element={<Devices />} />
+         <Route path="/energy" element={<Energy />} />
+        </Routes>
 
-            <DashboardCard
-              title="Temperature"
-              value="22°C"
-              icon="🌡️"
-              description="Normal"
-            />
+        </div>
 
-            <DashboardCard
-              title="Humidity"
-              value="48%"
-              icon="💧"
-              description="Normal"
-            />
-
-            <DashboardCard
-              title="Energy"
-              value="6.8 kWh"
-              icon="⚡"
-              description="Today"
-            />
-
-          </div>
-
-          <div className="devices-section">
-            <h2>Devices</h2>
-
-            <div className="device-cards">
-
-              <DeviceCard
-                name="Living Light"
-                icon="💡"
-                type="Light"
-              />
-
-              <DeviceCard
-                name="Bedroom Light"
-                icon="💡"
-                type="Light"
-              />
-
-              <DeviceCard
-                name="Front Door"
-                icon="🚪"
-                type="Security"
-              />
-
-            </div>
-          </div>
-            <EnergyChart />
-
-        </main>
       </div>
-    </div>
+
+    </BrowserRouter>
   )
 }
 
